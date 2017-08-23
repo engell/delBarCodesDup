@@ -1,11 +1,10 @@
 #!/bin/bash
-rm tmp/mar
+rm tmp/cat
 
-sed -i '4s/mar2/CatalogoMar.txt/gi' './extrae.awk'
-awk -f "./extrae.awk" | sed 's/ /0/g' | sort | uniq -d -w 14 | cut -d "." -f 3 | sort -g -r >> tmp/mar
-sed -i 's/$/d/' 'tmp/mar'
+awk -f "./extrae.awk" | sed 's/ /0/g' | sort | uniq -d -w 14 | cut -d "." -f 3 | sort -g -r >> tmp/cat
+sed -i 's/$/d/' 'tmp/cat'
 
-for linea in $(man tmp/mar);
+for linea in $(man tmp/cat);
     do
-        sed -i $linea tmp/CatalogoMar.txt
+        sed -i $linea tmp/Catalogo.txt
     done
